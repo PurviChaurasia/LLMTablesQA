@@ -1,0 +1,127 @@
+[
+    {
+        "table_name": "sportset_2",
+        "query": "SELECT COUNT(*) FROM sportset_2 WHERE city = 'Miami' AND season = 2018",
+        "result": 2
+    },
+    {
+        "table_name": "sportset_2",
+        "query": "SELECT MAX(attendance) FROM sportset_2 WHERE stadium = 'Smoothie King Center' AND year = 2019",
+        "result": 14700
+    },
+    {
+        "table_name": "sportset_2",
+        "query": "SELECT SUM(attendance) FROM sportset_2 WHERE month = 'October' AND year = 2017",
+        "result": 34000
+    },
+    {
+        "table_name": "sportset_2",
+        "query": "SELECT AVG(capacity) FROM sportset_2 WHERE season = 2018 AND state = 'Louisiana'",
+        "result": 16900.0
+    },
+    {
+        "table_name": "sportset_2",
+        "query": "SELECT city FROM sportset_2 WHERE day = 6 AND month = 'March' AND year = 2019",
+        "result": "[('New Orleans',), ('New Orleans',)]"
+    },
+    {
+        "table_name": "sportset_coldtemp_30_13",
+        "query": "SELECT COUNT(*) FROM sportset_coldtemp_30_13 WHERE city = 'Detroit' AND year = 2015",
+        "result": 4
+    },
+    {
+        "table_name": "sportset_coldtemp_30_13",
+        "query": "SELECT MAX(attendance) FROM sportset_coldtemp_30_13 WHERE state = 'Michigan' AND season = 2015",
+        "result": 15500
+    },
+    {
+        "table_name": "sportset_coldtemp_30_13",
+        "query": "SELECT AVG(attendance) FROM sportset_coldtemp_30_13 WHERE month = 'December' AND year = 2015",
+        "result": 17850.0
+    },
+    {
+        "table_name": "sportset_coldtemp_30_13",
+        "query": "SELECT capacity FROM sportset_coldtemp_30_13 WHERE stadium = 'Air Canada Centre' AND game_id = 2100",
+        "result": "[(19800,), (19800,)]"
+    },
+    {
+        "table_name": "sportset_coldtemp_30_13",
+        "query": "SELECT dayname FROM sportset_coldtemp_30_13 WHERE season = 2018 AND game_id = 6145",
+        "result": "[('Monday',), ('Monday',)]"
+    },
+    {
+        "table_name": "sportset_midwest_30_8",
+        "query": "SELECT COUNT(*) FROM sportset_midwest_30_8 WHERE city = 'Indianapolis' AND year = 2016",
+        "result": 4
+    },
+    {
+        "table_name": "sportset_midwest_30_8",
+        "query": "SELECT MAX(attendance) FROM sportset_midwest_30_8 WHERE stadium = 'Target Center' AND month = 'October'",
+        "result": 19000
+    },
+    {
+        "table_name": "sportset_midwest_30_8",
+        "query": "SELECT SUM(capacity) FROM sportset_midwest_30_8 WHERE state = 'Minnesota' AND season = 2017",
+        "result": 76000
+    },
+    {
+        "table_name": "sportset_midwest_30_8",
+        "query": "SELECT AVG(attendance) FROM sportset_midwest_30_8 WHERE dayname = 'Friday' AND year = 2017",
+        "result": 18450.0
+    },
+    {
+        "table_name": "sportset_midwest_30_8",
+        "query": "SELECT DISTINCT stadium FROM sportset_midwest_30_8 WHERE attendance > 18000 AND city = 'Minneapolis'",
+        "result": "Target Center"
+    },
+    {
+        "table_name": "sportset_northeast_30_1",
+        "query": "SELECT COUNT(*) FROM sportset_northeast_30_1 WHERE city = 'Orlando' AND attendance > 15000",
+        "result": 0
+    },
+    {
+        "table_name": "sportset_northeast_30_1",
+        "query": "SELECT MAX(attendance) FROM sportset_northeast_30_1 WHERE state = 'Pennsylvania' AND year = 2018",
+        "result": 20800
+    },
+    {
+        "table_name": "sportset_northeast_30_1",
+        "query": "SELECT AVG(attendance) FROM sportset_northeast_30_1 WHERE stadium = 'Wells Fargo Center' AND season = 2018",
+        "result": 20400.0
+    },
+    {
+        "table_name": "sportset_northeast_30_1",
+        "query": "SELECT city FROM sportset_northeast_30_1 WHERE game_id = 689",
+        "result": "[('Brooklyn',), ('Brooklyn',)]"
+    },
+    {
+        "table_name": "sportset_northeast_30_1",
+        "query": "SELECT SUM(capacity) FROM sportset_northeast_30_1 WHERE month = 'December' AND year = 2018",
+        "result": 76400
+    },
+    {
+        "table_name": "sportset_west_30_4",
+        "query": "SELECT COUNT(*) FROM sportset_west_30_4 WHERE city = 'Oakland' AND year = 2016",
+        "result": 2
+    },
+    {
+        "table_name": "sportset_west_30_4",
+        "query": "SELECT MAX(attendance) FROM sportset_west_30_4 WHERE state = 'California' AND season = 2016",
+        "result": 19600
+    },
+    {
+        "table_name": "sportset_west_30_4",
+        "query": "SELECT AVG(capacity) FROM sportset_west_30_4 WHERE month = 'April' AND year = 2017",
+        "result": 19000.0
+    },
+    {
+        "table_name": "sportset_west_30_4",
+        "query": "SELECT stadium FROM sportset_west_30_4 WHERE game_id = 4419 AND attendance >= 20000",
+        "result": "[('Pepsi Center',), ('Pepsi Center',)]"
+    },
+    {
+        "table_name": "sportset_west_30_4",
+        "query": "SELECT MIN(year) FROM sportset_west_30_4 WHERE dayname = 'Wednesday' AND city = 'Oakland'",
+        "result": 2016
+    }
+]
