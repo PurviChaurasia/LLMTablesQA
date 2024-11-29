@@ -32,11 +32,13 @@ def csv_folder_to_database_custom_schema(folder_path, db_path):
                         state TEXT NOT NULL,
                         attendance INTEGER NOT NULL,
                         capacity INTEGER NOT NULL,
-                        game_id INTEGER,
                         summary TEXT
                     )
                 """)
             print(f"Custom schema applied for table '{table_name}'.")
+
+            if 'game_id' in df.columns:
+                df = df.drop(columns=['game_id'])
 
             for _, row in df.iterrows():
                 placeholders = ', '.join(['?'] * len(row))

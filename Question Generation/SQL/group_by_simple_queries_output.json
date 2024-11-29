@@ -1,0 +1,102 @@
+[
+    {
+        "table_name": "sportset_2",
+        "query": "SELECT city, COUNT(game_id) FROM sportset_2 WHERE attendance > 15000 GROUP BY city HAVING COUNT(game_id) > 1"
+    },
+    {
+        "table_name": "sportset_2",
+        "query": "SELECT season, MAX(attendance) FROM sportset_2 WHERE month = 'March' OR month = 'February' GROUP BY season HAVING MAX(attendance) > 14000"
+    },
+    {
+        "table_name": "sportset_2",
+        "query": "SELECT state, SUM(attendance) FROM sportset_2 WHERE stadium LIKE '%Center%' GROUP BY state HAVING SUM(attendance) > 30000"
+    },
+    {
+        "table_name": "sportset_2",
+        "query": "SELECT DISTINCT stadium, AVG(capacity) FROM sportset_2 WHERE dayname = 'Wednesday' AND year = 2019 GROUP BY stadium HAVING AVG(capacity) < 17000"
+    },
+    {
+        "table_name": "sportset_2",
+        "query": "SELECT month, COUNT(DISTINCT game_id) FROM sportset_2 WHERE city = 'New Orleans' AND state = 'Louisiana' GROUP BY month HAVING COUNT(DISTINCT game_id) >= 1"
+    },
+    {
+        "table_name": "sportset_coldtemp_30_13",
+        "query": "SELECT city, COUNT(game_id) FROM sportset_coldtemp_30_13 WHERE state = 'Michigan' OR state = 'Ontario' GROUP BY city HAVING COUNT(game_id) > 1"
+    },
+    {
+        "table_name": "sportset_coldtemp_30_13",
+        "query": "SELECT stadium, SUM(attendance) FROM sportset_coldtemp_30_13 WHERE month LIKE 'April%' AND season = 2015 GROUP BY stadium HAVING SUM(attendance) > 30000"
+    },
+    {
+        "table_name": "sportset_coldtemp_30_13",
+        "query": "SELECT DISTINCT dayname FROM sportset_coldtemp_30_13 WHERE attendance < capacity OR season = 2018"
+    },
+    {
+        "table_name": "sportset_coldtemp_30_13",
+        "query": "SELECT year, MAX(attendance) FROM sportset_coldtemp_30_13 WHERE month = 'December' OR month = 'March' GROUP BY year HAVING MAX(attendance) > 15000"
+    },
+    {
+        "table_name": "sportset_coldtemp_30_13",
+        "query": "SELECT month, COUNT(game_id) FROM sportset_coldtemp_30_13 WHERE state = 'Washington' AND (attendance > 19000 OR capacity > 20000) GROUP BY month ORDER BY COUNT(game_id) DESC LIMIT 2"
+    },
+    {
+        "table_name": "sportset_midwest_30_8",
+        "query": "SELECT city, COUNT(game_id) FROM sportset_midwest_30_8 WHERE state = 'Indiana' OR state = 'Minnesota' GROUP BY city HAVING COUNT(game_id) > 1"
+    },
+    {
+        "table_name": "sportset_midwest_30_8",
+        "query": "SELECT stadium, MAX(attendance) FROM sportset_midwest_30_8 WHERE season = 2015 OR season = 2016 GROUP BY stadium HAVING MAX(attendance) > 18000"
+    },
+    {
+        "table_name": "sportset_midwest_30_8",
+        "query": "SELECT month, SUM(attendance) FROM sportset_midwest_30_8 WHERE dayname LIKE 'Mon%' OR dayname LIKE 'Fri%' GROUP BY month HAVING SUM(attendance) > 35000"
+    },
+    {
+        "table_name": "sportset_midwest_30_8",
+        "query": "SELECT DISTINCT state FROM sportset_midwest_30_8 WHERE attendance < capacity AND city NOT LIKE '%apolis%'"
+    },
+    {
+        "table_name": "sportset_midwest_30_8",
+        "query": "SELECT dayname, COUNT(game_id) FROM sportset_midwest_30_8 WHERE year = 2017 AND (stadium = 'Target Center' OR city = 'Indianapolis') GROUP BY dayname HAVING COUNT(game_id) >= 1"
+    },
+    {
+        "table_name": "sportset_northeast_30_1",
+        "query": "SELECT city, COUNT(game_id) FROM sportset_northeast_30_1 WHERE attendance > 20000 AND state = 'Pennsylvania' GROUP BY city HAVING COUNT(game_id) > 1"
+    },
+    {
+        "table_name": "sportset_northeast_30_1",
+        "query": "SELECT stadium, MAX(attendance) FROM sportset_northeast_30_1 WHERE season = 2018 OR city = 'Brooklyn' GROUP BY stadium HAVING MAX(attendance) < 18000"
+    },
+    {
+        "table_name": "sportset_northeast_30_1",
+        "query": "SELECT month, SUM(attendance) FROM sportset_northeast_30_1 WHERE year = 2018 AND (dayname LIKE 'Saturday' OR dayname LIKE 'Sunday') GROUP BY month HAVING SUM(attendance) > 50000"
+    },
+    {
+        "table_name": "sportset_northeast_30_1",
+        "query": "SELECT DISTINCT state FROM sportset_northeast_30_1 WHERE stadium = 'Barclays Center' AND attendance < capacity ORDER BY state ASC LIMIT 5"
+    },
+    {
+        "table_name": "sportset_northeast_30_1",
+        "query": "SELECT month, AVG(attendance) FROM sportset_northeast_30_1 WHERE season != 2014 AND dayname NOT IN ('Saturday', 'Sunday') GROUP BY month HAVING AVG(attendance) > 15000"
+    },
+    {
+        "table_name": "sportset_west_30_4",
+        "query": "SELECT city, COUNT(game_id) FROM sportset_west_30_4 WHERE state = 'California' GROUP BY city HAVING COUNT(game_id) > 1"
+    },
+    {
+        "table_name": "sportset_west_30_4",
+        "query": "SELECT stadium, AVG(attendance) FROM sportset_west_30_4 WHERE season = 2016 OR month LIKE 'April' GROUP BY stadium HAVING AVG(attendance) > 19500"
+    },
+    {
+        "table_name": "sportset_west_30_4",
+        "query": "SELECT dayname, MAX(attendance) FROM sportset_west_30_4 WHERE month = 'November' AND year = 2016 GROUP BY dayname"
+    },
+    {
+        "table_name": "sportset_west_30_4",
+        "query": "SELECT DISTINCT state, SUM(capacity) FROM sportset_west_30_4 WHERE attendance < capacity AND season = 2016 GROUP BY state"
+    },
+    {
+        "table_name": "sportset_west_30_4",
+        "query": "SELECT month, COUNT(DISTINCT game_id) FROM sportset_west_30_4 WHERE attendance > 19800 OR city = 'Oakland' GROUP BY month ORDER BY COUNT(DISTINCT game_id) DESC LIMIT 1"
+    }
+]

@@ -1,0 +1,152 @@
+[
+    {
+        "table_name": "sportset_2",
+        "query": "SELECT city, COUNT(game_id) FROM sportset_2 WHERE attendance > 15000 GROUP BY city HAVING COUNT(game_id) > 1",
+        "result": "[('Atlanta', 3), ('Charlotte', 4), ('Dallas', 2), ('Houston', 2), ('Memphis', 5), ('New Orleans', 4), ('Oklahoma City', 3), ('Orlando', 2)]",
+        "question": "Which cities have hosted more than one sport event with an attendance greater than 15,000?"
+    },
+    {
+        "table_name": "sportset_2",
+        "query": "SELECT season, MAX(attendance) FROM sportset_2 WHERE month = 'March' OR month = 'February' GROUP BY season HAVING MAX(attendance) > 14000",
+        "result": "[(2014, 16200), (2015, 18200), (2016, 16000), (2017, 16600), (2018, 20300)]",
+        "question": "Which seasons had the highest attendance in February or March, and what was that attendance if it exceeded 14,000?"
+    },
+    {
+        "table_name": "sportset_2",
+        "query": "SELECT state, SUM(attendance) FROM sportset_2 WHERE stadium LIKE '%Center%' GROUP BY state HAVING SUM(attendance) > 30000",
+        "result": "[('Florida', 32800), ('Louisiana', 83000), ('North Carolina', 35400), ('Texas', 76100)]",
+        "question": "In which states did stadiums with \"Center\" in their name have total attendances exceeding 30,000?"
+    },
+    {
+        "table_name": "sportset_2",
+        "query": "SELECT DISTINCT stadium, AVG(capacity) FROM sportset_2 WHERE dayname = 'Wednesday' AND year = 2019 GROUP BY stadium HAVING AVG(capacity) < 17000",
+        "result": "[('Smoothie King Center', 16900.0)]",
+        "question": "Which stadiums had an average capacity of less than 17,000 on Wednesdays in 2019?"
+    },
+    {
+        "table_name": "sportset_2",
+        "query": "SELECT month, COUNT(DISTINCT game_id) FROM sportset_2 WHERE city = 'New Orleans' AND state = 'Louisiana' GROUP BY month HAVING COUNT(DISTINCT game_id) >= 1",
+        "result": "[('December', 1), ('January', 2), ('March', 1), ('October', 1)]",
+        "question": "In which months did at least one game occur in New Orleans, Louisiana?"
+    },
+    {
+        "table_name": "sportset_coldtemp_30_13",
+        "query": "SELECT city, COUNT(game_id) FROM sportset_coldtemp_30_13 WHERE state = 'Michigan' OR state = 'Ontario' GROUP BY city HAVING COUNT(game_id) > 1",
+        "result": "[('Detroit', 3), ('Toronto', 4)]",
+        "question": "In which cities in Michigan and Ontario have more than one game been played?"
+    },
+    {
+        "table_name": "sportset_coldtemp_30_13",
+        "query": "SELECT stadium, SUM(attendance) FROM sportset_coldtemp_30_13 WHERE month LIKE 'April%' AND season = 2015 GROUP BY stadium HAVING SUM(attendance) > 30000",
+        "result": "[]",
+        "question": "Which stadiums had a total attendance of more than 30,000 during April of the 2015 season?"
+    },
+    {
+        "table_name": "sportset_coldtemp_30_13",
+        "query": "SELECT DISTINCT dayname FROM sportset_coldtemp_30_13 WHERE attendance < capacity OR season = 2018",
+        "result": "[('Monday',), ('Thursday',), ('Sunday',), ('Wednesday',), ('Friday',), ('Saturday',), ('Tuesday',)]",
+        "question": "On which days of the week did attendance fall below capacity or were there events held in the year 2018?"
+    },
+    {
+        "table_name": "sportset_coldtemp_30_13",
+        "query": "SELECT year, MAX(attendance) FROM sportset_coldtemp_30_13 WHERE month = 'December' OR month = 'March' GROUP BY year HAVING MAX(attendance) > 15000",
+        "result": "[(2014, 16100), (2015, 20200), (2016, 19800), (2017, 20400), (2018, 20400), (2019, 15600)]",
+        "question": "In which years did the attendance for sporting events in December or March exceed 15,000?"
+    },
+    {
+        "table_name": "sportset_coldtemp_30_13",
+        "query": "SELECT month, COUNT(game_id) FROM sportset_coldtemp_30_13 WHERE state = 'Washington' AND (attendance > 19000 OR capacity > 20000) GROUP BY month ORDER BY COUNT(game_id) DESC LIMIT 2",
+        "result": "[('December', 2), ('March', 1)]",
+        "question": "Which two months had the highest number of games held in Washington, where attendance exceeded 19,000 or venue capacity was greater than 20,000?"
+    },
+    {
+        "table_name": "sportset_midwest_30_8",
+        "query": "SELECT city, COUNT(game_id) FROM sportset_midwest_30_8 WHERE state = 'Indiana' OR state = 'Minnesota' GROUP BY city HAVING COUNT(game_id) > 1",
+        "result": "[('Indianapolis', 12), ('Minneapolis', 6)]",
+        "question": "In which cities located in Indiana or Minnesota have more than one game been played?"
+    },
+    {
+        "table_name": "sportset_midwest_30_8",
+        "query": "SELECT stadium, MAX(attendance) FROM sportset_midwest_30_8 WHERE season = 2015 OR season = 2016 GROUP BY stadium HAVING MAX(attendance) > 18000",
+        "result": "[('Bankers Life Fieldhouse', 18200), ('Palace of Auburn Hills', 18400), ('United Center', 23100)]",
+        "question": "What are the names of the stadiums that had a maximum attendance of more than 18,000 during the 2015 and 2016 seasons?"
+    },
+    {
+        "table_name": "sportset_midwest_30_8",
+        "query": "SELECT month, SUM(attendance) FROM sportset_midwest_30_8 WHERE dayname LIKE 'Mon%' OR dayname LIKE 'Fri%' GROUP BY month HAVING SUM(attendance) > 35000",
+        "result": "[('December', 48200), ('January', 36800)]",
+        "question": "In which months did the attendance on Mondays or Fridays exceed 35,000 at the Midwest sports events?"
+    },
+    {
+        "table_name": "sportset_midwest_30_8",
+        "query": "SELECT DISTINCT state FROM sportset_midwest_30_8 WHERE attendance < capacity AND city NOT LIKE '%apolis%'",
+        "result": "[('Michigan',), ('Wisconsin',)]",
+        "question": "Which states have sports events with attendance below capacity that are not located in cities with names ending in 'apolis'?"
+    },
+    {
+        "table_name": "sportset_midwest_30_8",
+        "query": "SELECT dayname, COUNT(game_id) FROM sportset_midwest_30_8 WHERE year = 2017 AND (stadium = 'Target Center' OR city = 'Indianapolis') GROUP BY dayname HAVING COUNT(game_id) >= 1",
+        "result": "[('Friday', 2), ('Monday', 2), ('Sunday', 1), ('Tuesday', 1), ('Wednesday', 2)]",
+        "question": "In 2017, how many games were held on different days of the week at the Target Center or in the city of Indianapolis?"
+    },
+    {
+        "table_name": "sportset_northeast_30_1",
+        "query": "SELECT city, COUNT(game_id) FROM sportset_northeast_30_1 WHERE attendance > 20000 AND state = 'Pennsylvania' GROUP BY city HAVING COUNT(game_id) > 1",
+        "result": "[('Philadelphia', 3)]",
+        "question": "In Pennsylvania, which cities hosted more than one sporting event with an attendance greater than 20,000?"
+    },
+    {
+        "table_name": "sportset_northeast_30_1",
+        "query": "SELECT stadium, MAX(attendance) FROM sportset_northeast_30_1 WHERE season = 2018 OR city = 'Brooklyn' GROUP BY stadium HAVING MAX(attendance) < 18000",
+        "result": "[('Barclays Center', 17700)]",
+        "question": "Which stadiums had a maximum attendance of less than 18,000 during the 2018 season or are located in Brooklyn?"
+    },
+    {
+        "table_name": "sportset_northeast_30_1",
+        "query": "SELECT month, SUM(attendance) FROM sportset_northeast_30_1 WHERE year = 2018 AND (dayname LIKE 'Saturday' OR dayname LIKE 'Sunday') GROUP BY month HAVING SUM(attendance) > 50000",
+        "result": "[]",
+        "question": "In 2018, which months had a combined attendance of more than 50,000 for events that took place on Saturdays or Sundays?"
+    },
+    {
+        "table_name": "sportset_northeast_30_1",
+        "query": "SELECT DISTINCT state FROM sportset_northeast_30_1 WHERE stadium = 'Barclays Center' AND attendance < capacity ORDER BY state ASC LIMIT 5",
+        "result": "New York",
+        "question": "Which states have events held at the Barclays Center with attendance lower than the stadium's capacity, and can you list up to five of them?"
+    },
+    {
+        "table_name": "sportset_northeast_30_1",
+        "query": "SELECT month, AVG(attendance) FROM sportset_northeast_30_1 WHERE season != 2014 AND dayname NOT IN ('Saturday', 'Sunday') GROUP BY month HAVING AVG(attendance) > 15000",
+        "result": "[('December', 16500.0), ('February', 15166.666666666666), ('January', 16525.0), ('March', 17733.333333333332), ('November', 18150.0)]",
+        "question": "What are the average attendance numbers for each month during the seasons other than 2014, excluding Saturdays and Sundays, provided the attendance is greater than 15,000?"
+    },
+    {
+        "table_name": "sportset_west_30_4",
+        "query": "SELECT city, COUNT(game_id) FROM sportset_west_30_4 WHERE state = 'California' GROUP BY city HAVING COUNT(game_id) > 1",
+        "result": "[('Los Angeles', 5), ('Oakland', 2), ('Sacramento', 4), ('San Antonio', 2)]",
+        "question": "Which cities in California hosted more than one sports game?"
+    },
+    {
+        "table_name": "sportset_west_30_4",
+        "query": "SELECT stadium, AVG(attendance) FROM sportset_west_30_4 WHERE season = 2016 OR month LIKE 'April' GROUP BY stadium HAVING AVG(attendance) > 19500",
+        "result": "[('EnergySolutions Arena', 19900.0), ('Oracle Arena', 19600.0)]",
+        "question": "Which stadiums had an average attendance of more than 19,500 during the 2016 season or in April?"
+    },
+    {
+        "table_name": "sportset_west_30_4",
+        "query": "SELECT dayname, MAX(attendance) FROM sportset_west_30_4 WHERE month = 'November' AND year = 2016 GROUP BY dayname",
+        "result": "[('Friday', 19000), ('Wednesday', 19600)]",
+        "question": "What was the highest attendance recorded for each day of the week in November 2016?"
+    },
+    {
+        "table_name": "sportset_west_30_4",
+        "query": "SELECT DISTINCT state, SUM(capacity) FROM sportset_west_30_4 WHERE attendance < capacity AND season = 2016 GROUP BY state",
+        "result": "[]",
+        "question": "Which states had a total capacity greater than their attendance during the 2016 season, and what is the total capacity for each of those states?"
+    },
+    {
+        "table_name": "sportset_west_30_4",
+        "query": "SELECT month, COUNT(DISTINCT game_id) FROM sportset_west_30_4 WHERE attendance > 19800 OR city = 'Oakland' GROUP BY month ORDER BY COUNT(DISTINCT game_id) DESC LIMIT 1",
+        "result": "[('April', 2)]",
+        "question": "In which month was the highest number of unique games held, considering only those with attendance greater than 19,800 or that took place in Oakland?"
+    }
+]
