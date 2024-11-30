@@ -1,0 +1,127 @@
+[
+    {
+        "table_name": "sportset_2",
+        "query": "SELECT state, SUM(attendance) FROM sportset_2 WHERE summary LIKE '%Los Angeles Clippers%' GROUP BY state HAVING SUM(attendance) > 15000",
+        "result": "[('Florida', 16600), ('Louisiana', 16400), ('North Carolina', 17600)]"
+    },
+    {
+        "table_name": "sportset_2",
+        "query": "SELECT stadium, COUNT(game_id) FROM sportset_2 WHERE summary LIKE '%Miami Heat%' GROUP BY stadium ORDER BY COUNT(game_id) DESC LIMIT 3",
+        "result": "[('Time Warner Cable Arena', 1), ('Spectrum Center', 1), ('Chesapeake Energy Arena', 1)]"
+    },
+    {
+        "table_name": "sportset_2",
+        "query": "SELECT city, AVG(attendance) FROM sportset_2 WHERE summary LIKE '%Oklahoma City Thunder%' GROUP BY city HAVING AVG(attendance) < 20000",
+        "result": "[('Oklahoma City', 10920.0)]"
+    },
+    {
+        "table_name": "sportset_2",
+        "query": "SELECT month, SUM(capacity) FROM sportset_2 WHERE stadium LIKE '%Center%' GROUP BY month HAVING SUM(capacity) > 50000",
+        "result": "[('December', 54200), ('March', 53800)]"
+    },
+    {
+        "table_name": "sportset_2",
+        "query": "SELECT dayname, COUNT(DISTINCT game_id) FROM sportset_2 WHERE summary LIKE '%Anthony Davis%' AND stadium LIKE '%Arena%' GROUP BY dayname ORDER BY COUNT(DISTINCT game_id) DESC",
+        "result": "[('Sunday', 1)]"
+    },
+    {
+        "table_name": "sportset_coldtemp_30_13",
+        "query": "SELECT state, SUM(attendance) FROM sportset_coldtemp_30_13 WHERE summary LIKE '%Washington Wizards%' GROUP BY state HAVING SUM(attendance) > 10000",
+        "result": "[('Illinois', 21900), ('Michigan', 15200), ('New York', 16200), ('Pennsylvania', 20600), ('Washington', 75600)]"
+    },
+    {
+        "table_name": "sportset_coldtemp_30_13",
+        "query": "SELECT stadium, COUNT(*) FROM sportset_coldtemp_30_13 WHERE stadium LIKE '%Arena%' GROUP BY stadium ORDER BY COUNT(*) DESC LIMIT 1",
+        "result": "[('Capital One Arena', 3)]"
+    },
+    {
+        "table_name": "sportset_coldtemp_30_13",
+        "query": "SELECT month, AVG(attendance) FROM sportset_coldtemp_30_13 WHERE summary LIKE '%Charlotte Hornets%' GROUP BY month HAVING AVG(attendance) > 15000",
+        "result": "[('April', 18450.0)]"
+    },
+    {
+        "table_name": "sportset_coldtemp_30_13",
+        "query": "SELECT DISTINCT city FROM sportset_coldtemp_30_13 WHERE summary LIKE '%Jazz%' OR summary LIKE '%Hornets%'",
+        "result": "[('Washington',), ('Minneapolis',), ('Toronto',), ('Cleveland',), ('Brooklyn',)]"
+    },
+    {
+        "table_name": "sportset_coldtemp_30_13",
+        "query": "SELECT dayname, SUM(attendance) FROM sportset_coldtemp_30_13 WHERE stadium LIKE '%Center%' AND month = 'April' GROUP BY dayname HAVING SUM(attendance) > 20000",
+        "result": "[('Wednesday', 35400)]"
+    },
+    {
+        "table_name": "sportset_midwest_30_8",
+        "query": "SELECT state, SUM(attendance) FROM sportset_midwest_30_8 WHERE summary LIKE '%Los Angeles Lakers%' GROUP BY state HAVING SUM(attendance) > 15000",
+        "result": "[('Illinois', 23100), ('Indiana', 35500)]"
+    },
+    {
+        "table_name": "sportset_midwest_30_8",
+        "query": "SELECT city, COUNT(*) FROM sportset_midwest_30_8 WHERE summary LIKE '%Indiana Pacers%' AND month = 'February' GROUP BY city",
+        "result": "[('Indianapolis', 2)]"
+    },
+    {
+        "table_name": "sportset_midwest_30_8",
+        "query": "SELECT stadium, MAX(capacity) FROM sportset_midwest_30_8 WHERE stadium LIKE '%Fieldhouse%'",
+        "result": "[('Bankers Life Fieldhouse', 17900)]"
+    },
+    {
+        "table_name": "sportset_midwest_30_8",
+        "query": "SELECT state, AVG(attendance) FROM sportset_midwest_30_8 WHERE summary LIKE '%Trail Blazers%' GROUP BY state HAVING AVG(attendance) > 15000",
+        "result": "[('Michigan', 18400.0), ('Minnesota', 15250.0)]"
+    },
+    {
+        "table_name": "sportset_midwest_30_8",
+        "query": "SELECT DISTINCT dayname FROM sportset_midwest_30_8 WHERE summary LIKE '%Rockets%' ORDER BY dayname ASC",
+        "result": "Monday"
+    },
+    {
+        "table_name": "sportset_northeast_30_1",
+        "query": "SELECT city, SUM(attendance) FROM sportset_northeast_30_1 WHERE summary LIKE '%Brooklyn Nets%' GROUP BY city HAVING SUM(attendance) > 15000",
+        "result": "[('Brooklyn', 205000), ('New York City', 18900), ('Philadelphia', 20400)]"
+    },
+    {
+        "table_name": "sportset_northeast_30_1",
+        "query": "SELECT state, COUNT(*) FROM sportset_northeast_30_1 WHERE summary LIKE '%Philadelphia 76ers%' AND month = 'March' GROUP BY state",
+        "result": "[('New York', 2), ('Pennsylvania', 1)]"
+    },
+    {
+        "table_name": "sportset_northeast_30_1",
+        "query": "SELECT stadium, MAX(capacity) FROM sportset_northeast_30_1 WHERE stadium LIKE '%Center%'",
+        "result": "[('Wells Fargo Center', 20500)]"
+    },
+    {
+        "table_name": "sportset_northeast_30_1",
+        "query": "SELECT dayname, AVG(attendance) FROM sportset_northeast_30_1 WHERE summary LIKE '%Cavaliers%' GROUP BY dayname ORDER BY AVG(attendance) DESC LIMIT 3",
+        "result": "[('Sunday', 18150.0), ('Friday', 17700.0), ('Monday', 13800.0)]"
+    },
+    {
+        "table_name": "sportset_northeast_30_1",
+        "query": "SELECT COUNT(*) FROM sportset_northeast_30_1 WHERE summary LIKE '%Los Angeles Lakers%' AND year = 2018",
+        "result": 0
+    },
+    {
+        "table_name": "sportset_west_30_4",
+        "query": "SELECT city, COUNT(*) FROM sportset_west_30_4 WHERE summary LIKE '%Denver Nuggets%' GROUP BY city HAVING COUNT(*) > 1",
+        "result": "[('Denver', 3)]"
+    },
+    {
+        "table_name": "sportset_west_30_4",
+        "query": "SELECT stadium, SUM(attendance) FROM sportset_west_30_4 WHERE summary LIKE '%Utah Jazz%' GROUP BY stadium HAVING SUM(attendance) > 30000",
+        "result": "[('Vivint Smart Home Arena', 54900)]"
+    },
+    {
+        "table_name": "sportset_west_30_4",
+        "query": "SELECT state, AVG(capacity) FROM sportset_west_30_4 WHERE stadium LIKE '%Arena%' GROUP BY state ORDER BY AVG(capacity) DESC LIMIT 3",
+        "result": "[('Washington', 20400.0), ('California', 18450.0), ('Utah', 18300.0)]"
+    },
+    {
+        "table_name": "sportset_west_30_4",
+        "query": "SELECT game_id, MAX(attendance) FROM sportset_west_30_4 WHERE summary LIKE '%Golden State Warriors%' GROUP BY game_id",
+        "result": "[(2241, 16300), (3009, 19000), (3612, 19600), (3647, 19600), (4714, 18100)]"
+    },
+    {
+        "table_name": "sportset_west_30_4",
+        "query": "SELECT month, COUNT(DISTINCT game_id) FROM sportset_west_30_4 WHERE summary LIKE '%Houston Rockets%' AND year = 2018 GROUP BY month ORDER BY month ASC",
+        "result": "[('February', 1), ('January', 1)]"
+    }
+]

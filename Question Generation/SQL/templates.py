@@ -87,6 +87,8 @@ group_by_queries = [
     "SELECT [column1], [aggregation]([column2]) FROM [table_name] WHERE [condition1 AND condition2 AND condition3] GROUP BY [column1] ORDER BY [column1] LIMIT [n]"
 ]
 
+query_templates = [basic_selection, and_queries, or_queries, advanced_and_or_queries, distinct_queries, aggregation_queries, case_queries, like_queries, group_by_queries]
+
 # ---------------------------------- EXAMPLES -------------------------------------------------
 basic_queries_eg = ["SELECT COUNT(*) FROM sportset_2 WHERE city = 'Orlando' AND attendance > 16000", 
                    "SELECT SUM(attendance) FROM sportset_2 WHERE stadium = 'Time Warner Cable Arena' AND year = 2014 GROUP BY year HAVING SUM(attendance) > 33000"
@@ -119,3 +121,13 @@ group_by_eg = ["SELECT MIN(capacity) FROM sportset_midwest_30_8 WHERE state = 'O
             "SELECT state, MAX(capacity) FROM sportset_midwest_30_8 GROUP BY state",
             "SELECT month, SUM(attendance) FROM sportset_midwest_30_8 WHERE year = 2016 GROUP BY month",
             "SELECT city, AVG(capacity) FROM sportset_midwest_30_8 GROUP BY city"]
+
+like_eg = ["SELECT state, SUM(attendance) FROM sportset_2 WHERE stadium LIKE '%Center%' GROUP BY state HAVING SUM(attendance) > 30000",
+            "SELECT COUNT(*) FROM [table] WHERE summary LIKE '%Boston Celtics%' AND month = 'February'",
+            "SELECT stadium, MAX(capacity) FROM [table] WHERE stadium LIKE '%Arena%'",
+            "SELECT * FROM [table] WHERE summary LIKE '%Los Angeles Lakers%'",
+            "SELECT month, AVG(attendance) FROM sportset_coldtemp_30_13 WHERE summary LIKE '%Charlotte Hornets%' GROUP BY month HAVING AVG(attendance) > 15000",
+            "SELECT city, COUNT(*) FROM sportset_midwest_30_8 WHERE summary LIKE '%Indiana Pacers%' AND month = 'February' GROUP BY city",
+            "SELECT DISTINCT dayname FROM sportset_midwest_30_8 WHERE summary LIKE '%Rockets%' ORDER BY dayname ASC",
+            "SELECT COUNT(*) FROM sportset_northeast_30_1 WHERE summary LIKE '%Los Angeles Lakers%' AND year = 2018"
+            ]

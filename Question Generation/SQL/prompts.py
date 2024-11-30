@@ -34,6 +34,54 @@ Read the table schema and 5 rows given from the table carefully and understand i
             Generate 5 such SQL queries.
 """
 
+generate_queries_for_like_prompt = """
+Read the table schema and 5 rows given from the table carefully and understand it correctly. Pay special attention to identifying key patterns in columns like `summary` and `stadium` for LIKE queries.
+
+            ### Table Schema:
+            {json.dumps(schema, indent=4)}
+
+            ### ROW DATA:
+            {json.dumps(row_samples, indent=4)}
+
+            ### SQL TEMPLATE:
+
+            SELECT [column1], [aggregation]([column2]) FROM [table] WHERE [column1] LIKE '%pattern%' GROUP BY [column1]
+
+            ### Instruction:
+            Your task is to fill in the placeholders in the query templates and create meaningful & logical SQL queries. Focus on making LIKE queries insightful by identifying specific patterns from the schema and sample data. 
+
+            #### Key Instructions for LIKE Queries:
+            1. Analyze the sample data and schema to identify recurring patterns or terms. The following are **high-priority patterns**:
+            - Team names from the `summary` column (e.g., "Boston Celtics", "Los Angeles Lakers", etc.).
+            - Common terms in the `stadium` column, such as "Centre" or "Arena".
+            - IT IS MOST IMPORTANT TO FOCUS ON CREATING QUERIES WITH TEAM NAMES
+
+            2. Always generate queries that:
+            - Return meaningful results from the table (e.g., using conditions like WHERE and HAVING with aggregations).
+            - Use diverse LIKE patterns based on real data patterns (team names, keywords, locations, etc.).
+            - Include conditions such as AND, OR, and NOT for more logical complexity.
+
+            3. Add additional clauses like HAVING, DISTINCT, and LIMIT to make the queries more diverse and realistic.
+
+            4. Ensure all queries adhere to the template provided:
+            - Use a single result column or aggregation function.
+            - Use deterministic conditions (e.g., COUNT, SUM, MAX, etc.).
+            - Ensure a meaningful ORDER BY clause for any LIMIT statements.
+
+            #### Example Queries:
+            - "SELECT state, SUM(attendance) FROM sportset_2 WHERE stadium LIKE '%Center%' GROUP BY state HAVING SUM(attendance) > 30000"
+            - "SELECT COUNT(*) FROM [table] WHERE summary LIKE '%Boston Celtics%' AND month = 'February'"
+            - "SELECT stadium, MAX(capacity) FROM [table] WHERE stadium LIKE '%Arena%'"
+            - "SELECT * FROM [table] WHERE summary LIKE '%Los Angeles Lakers%'"
+
+            ### Response Format:
+            Query: <Single Liner SQL Query>
+            Table: {table_name}
+
+            ### Task:
+            Generate 5 such SQL Queries.
+"""
+
 query_to_nl_question_prompt = """
 You are an expert data scientist skilled in SQL and natural language processing. Your task is to convert SQL queries into natural language questions. 
 

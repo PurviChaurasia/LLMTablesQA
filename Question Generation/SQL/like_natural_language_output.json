@@ -1,0 +1,152 @@
+[
+    {
+        "table_name": "sportset_2",
+        "query": "SELECT state, SUM(attendance) FROM sportset_2 WHERE summary LIKE '%Los Angeles Clippers%' GROUP BY state HAVING SUM(attendance) > 15000",
+        "result": "[('Florida', 16600), ('Louisiana', 16400), ('North Carolina', 17600)]",
+        "question": "Which states had a total attendance of more than 15,000 for games involving the Los Angeles Clippers?"
+    },
+    {
+        "table_name": "sportset_2",
+        "query": "SELECT stadium, COUNT(game_id) FROM sportset_2 WHERE summary LIKE '%Miami Heat%' GROUP BY stadium ORDER BY COUNT(game_id) DESC LIMIT 3",
+        "result": "[('Time Warner Cable Arena', 1), ('Spectrum Center', 1), ('Chesapeake Energy Arena', 1)]",
+        "question": "What are the three stadiums that hosted the most games featuring the Miami Heat?"
+    },
+    {
+        "table_name": "sportset_2",
+        "query": "SELECT city, AVG(attendance) FROM sportset_2 WHERE summary LIKE '%Oklahoma City Thunder%' GROUP BY city HAVING AVG(attendance) < 20000",
+        "result": "[('Oklahoma City', 10920.0)]",
+        "question": "In which cities did the average attendance for games featuring the Oklahoma City Thunder fall below 20,000?"
+    },
+    {
+        "table_name": "sportset_2",
+        "query": "SELECT month, SUM(capacity) FROM sportset_2 WHERE stadium LIKE '%Center%' GROUP BY month HAVING SUM(capacity) > 50000",
+        "result": "[('December', 54200), ('March', 53800)]",
+        "question": "In which months did stadiums with \"Center\" in their name have a total capacity greater than 50,000?"
+    },
+    {
+        "table_name": "sportset_2",
+        "query": "SELECT dayname, COUNT(DISTINCT game_id) FROM sportset_2 WHERE summary LIKE '%Anthony Davis%' AND stadium LIKE '%Arena%' GROUP BY dayname ORDER BY COUNT(DISTINCT game_id) DESC",
+        "result": "[('Sunday', 1)]",
+        "question": "On which days did Anthony Davis play games at an arena, and how many distinct games were played on those days?"
+    },
+    {
+        "table_name": "sportset_coldtemp_30_13",
+        "query": "SELECT state, SUM(attendance) FROM sportset_coldtemp_30_13 WHERE summary LIKE '%Washington Wizards%' GROUP BY state HAVING SUM(attendance) > 10000",
+        "result": "[('Illinois', 21900), ('Michigan', 15200), ('New York', 16200), ('Pennsylvania', 20600), ('Washington', 75600)]",
+        "question": "Which states had a total attendance of more than 10,000 for games involving the Washington Wizards?"
+    },
+    {
+        "table_name": "sportset_coldtemp_30_13",
+        "query": "SELECT stadium, COUNT(*) FROM sportset_coldtemp_30_13 WHERE stadium LIKE '%Arena%' GROUP BY stadium ORDER BY COUNT(*) DESC LIMIT 1",
+        "result": "[('Capital One Arena', 3)]",
+        "question": "Which stadium that includes 'Arena' in its name has hosted the most events?"
+    },
+    {
+        "table_name": "sportset_coldtemp_30_13",
+        "query": "SELECT month, AVG(attendance) FROM sportset_coldtemp_30_13 WHERE summary LIKE '%Charlotte Hornets%' GROUP BY month HAVING AVG(attendance) > 15000",
+        "result": "[('April', 18450.0)]",
+        "question": "In which months did the Charlotte Hornets have an average attendance greater than 15,000?"
+    },
+    {
+        "table_name": "sportset_coldtemp_30_13",
+        "query": "SELECT DISTINCT city FROM sportset_coldtemp_30_13 WHERE summary LIKE '%Jazz%' OR summary LIKE '%Hornets%'",
+        "result": "[('Washington',), ('Minneapolis',), ('Toronto',), ('Cleveland',), ('Brooklyn',)]",
+        "question": "Which cities have a summary mentioning either the Jazz or the Hornets?"
+    },
+    {
+        "table_name": "sportset_coldtemp_30_13",
+        "query": "SELECT dayname, SUM(attendance) FROM sportset_coldtemp_30_13 WHERE stadium LIKE '%Center%' AND month = 'April' GROUP BY dayname HAVING SUM(attendance) > 20000",
+        "result": "[('Wednesday', 35400)]",
+        "question": "On which days in April did stadiums with \"Center\" in their name have an attendance greater than 20,000?"
+    },
+    {
+        "table_name": "sportset_midwest_30_8",
+        "query": "SELECT state, SUM(attendance) FROM sportset_midwest_30_8 WHERE summary LIKE '%Los Angeles Lakers%' GROUP BY state HAVING SUM(attendance) > 15000",
+        "result": "[('Illinois', 23100), ('Indiana', 35500)]",
+        "question": "In which states did the attendance for games featuring the Los Angeles Lakers exceed 15,000?"
+    },
+    {
+        "table_name": "sportset_midwest_30_8",
+        "query": "SELECT city, COUNT(*) FROM sportset_midwest_30_8 WHERE summary LIKE '%Indiana Pacers%' AND month = 'February' GROUP BY city",
+        "result": "[('Indianapolis', 2)]",
+        "question": "How many events related to the Indiana Pacers occurred in each city during February?"
+    },
+    {
+        "table_name": "sportset_midwest_30_8",
+        "query": "SELECT stadium, MAX(capacity) FROM sportset_midwest_30_8 WHERE stadium LIKE '%Fieldhouse%'",
+        "result": "[('Bankers Life Fieldhouse', 17900)]",
+        "question": "What is the maximum seating capacity of stadiums that have \"Fieldhouse\" in their name?"
+    },
+    {
+        "table_name": "sportset_midwest_30_8",
+        "query": "SELECT state, AVG(attendance) FROM sportset_midwest_30_8 WHERE summary LIKE '%Trail Blazers%' GROUP BY state HAVING AVG(attendance) > 15000",
+        "result": "[('Michigan', 18400.0), ('Minnesota', 15250.0)]",
+        "question": "Which states had an average attendance of more than 15,000 at events involving the Trail Blazers?"
+    },
+    {
+        "table_name": "sportset_midwest_30_8",
+        "query": "SELECT DISTINCT dayname FROM sportset_midwest_30_8 WHERE summary LIKE '%Rockets%' ORDER BY dayname ASC",
+        "result": "Monday",
+        "question": "What are the distinct days of the week when the Rockets were mentioned in the summary?"
+    },
+    {
+        "table_name": "sportset_northeast_30_1",
+        "query": "SELECT city, SUM(attendance) FROM sportset_northeast_30_1 WHERE summary LIKE '%Brooklyn Nets%' GROUP BY city HAVING SUM(attendance) > 15000",
+        "result": "[('Brooklyn', 205000), ('New York City', 18900), ('Philadelphia', 20400)]",
+        "question": "In which cities did the Brooklyn Nets have a total attendance of more than 15,000?"
+    },
+    {
+        "table_name": "sportset_northeast_30_1",
+        "query": "SELECT state, COUNT(*) FROM sportset_northeast_30_1 WHERE summary LIKE '%Philadelphia 76ers%' AND month = 'March' GROUP BY state",
+        "result": "[('New York', 2), ('Pennsylvania', 1)]",
+        "question": "How many times was the Philadelphia 76ers mentioned in each state during the month of March?"
+    },
+    {
+        "table_name": "sportset_northeast_30_1",
+        "query": "SELECT stadium, MAX(capacity) FROM sportset_northeast_30_1 WHERE stadium LIKE '%Center%'",
+        "result": "[('Wells Fargo Center', 20500)]",
+        "question": "What is the name of the stadium with the highest capacity that includes \"Center\" in its name?"
+    },
+    {
+        "table_name": "sportset_northeast_30_1",
+        "query": "SELECT dayname, AVG(attendance) FROM sportset_northeast_30_1 WHERE summary LIKE '%Cavaliers%' GROUP BY dayname ORDER BY AVG(attendance) DESC LIMIT 3",
+        "result": "[('Sunday', 18150.0), ('Friday', 17700.0), ('Monday', 13800.0)]",
+        "question": "What are the top three days of the week with the highest average attendance for games involving the Cavaliers?"
+    },
+    {
+        "table_name": "sportset_northeast_30_1",
+        "query": "SELECT COUNT(*) FROM sportset_northeast_30_1 WHERE summary LIKE '%Los Angeles Lakers%' AND year = 2018",
+        "result": 0,
+        "question": "How many times was the Los Angeles Lakers mentioned in the summaries for the year 2018?"
+    },
+    {
+        "table_name": "sportset_west_30_4",
+        "query": "SELECT city, COUNT(*) FROM sportset_west_30_4 WHERE summary LIKE '%Denver Nuggets%' GROUP BY city HAVING COUNT(*) > 1",
+        "result": "[('Denver', 3)]",
+        "question": "In which cities have there been more than one event that mentioned the Denver Nuggets?"
+    },
+    {
+        "table_name": "sportset_west_30_4",
+        "query": "SELECT stadium, SUM(attendance) FROM sportset_west_30_4 WHERE summary LIKE '%Utah Jazz%' GROUP BY stadium HAVING SUM(attendance) > 30000",
+        "result": "[('Vivint Smart Home Arena', 54900)]",
+        "question": "Which stadiums hosted games for the Utah Jazz where total attendance exceeded 30,000?"
+    },
+    {
+        "table_name": "sportset_west_30_4",
+        "query": "SELECT state, AVG(capacity) FROM sportset_west_30_4 WHERE stadium LIKE '%Arena%' GROUP BY state ORDER BY AVG(capacity) DESC LIMIT 3",
+        "result": "[('Washington', 20400.0), ('California', 18450.0), ('Utah', 18300.0)]",
+        "question": "Which three states have the highest average stadium capacity for arenas?"
+    },
+    {
+        "table_name": "sportset_west_30_4",
+        "query": "SELECT game_id, MAX(attendance) FROM sportset_west_30_4 WHERE summary LIKE '%Golden State Warriors%' GROUP BY game_id",
+        "result": "[(2241, 16300), (3009, 19000), (3612, 19600), (3647, 19600), (4714, 18100)]",
+        "question": "What is the highest attendance recorded for each game involving the Golden State Warriors?"
+    },
+    {
+        "table_name": "sportset_west_30_4",
+        "query": "SELECT month, COUNT(DISTINCT game_id) FROM sportset_west_30_4 WHERE summary LIKE '%Houston Rockets%' AND year = 2018 GROUP BY month ORDER BY month ASC",
+        "result": "[('February', 1), ('January', 1)]",
+        "question": "In which months of 2018 did the Houston Rockets play, and how many distinct games were played each month?"
+    }
+]

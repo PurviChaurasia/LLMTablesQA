@@ -5,7 +5,7 @@ import json
 from openai import OpenAI
 import random
 from prompts import generate_queries_prompt, query_to_nl_question_prompt
-
+from templates import query_templates
 
 def csv_folder_to_database_custom_schema(folder_path, db_path):
     """
@@ -77,11 +77,13 @@ def generate_queries(table_name, schema, rows):
     Function to generate queries by replacing placeholders in query templates for a single table 
     """
     row_samples = [rows.sample(1, random_state=random.randint(1, 1000)).to_dict(orient="records")[0] for _ in range(5)]
+    selected_template = random.choice(random.choice(query_templates))
     print(f"Generating queries for {table_name}")
     formatted_prompt = generate_queries_prompt.format(
         table_name=table_name,
         schema=json.dumps(schema, indent=4),
-        row_samples=json.dumps(row_samples, indent=4)
+        row_samples=json.dumps(row_samples, indent=4),
+        template=selected_template
     )
     messages = [
         {"role": "system", "content": "Act as an expert in SQL and databases. Please give valid output JSON."},
@@ -112,14 +114,16 @@ def process_all_tables_and_save_simple(db_path, output_file):
     final_result = []
 
     for table_name in tables:
-        print(f"Processing table: {table_name}")
-        schema, rows = get_table_schema_and_rows(table_name, db_path)
-        queries_json = generate_queries(table_name, schema, rows)
-        for query in queries_json["queries"]:
-            final_result.append({
-                "table_name": query["Table"],
-                "query": query["Query"] 
-            })
+        for i in range(5):
+            print(f"  Generating queries for table '{table_name}', iteration {i + 1}")
+            schema, rows = get_table_schema_and_rows(table_name, db_path)
+            queries_json = generate_queries(table_name, schema, rows)
+            for query in queries_json["queries"]:
+                normalized_query = {k.lower(): v for k, v in query.items()}
+                final_result.append({
+                    "table_name": normalized_query.get("table", table_name), 
+                    "query": normalized_query.get("query", "Unknown Query")  
+                })
     conn.close()
     with open(output_file, "w") as f:
         json.dump(final_result, f, indent=4)
@@ -298,15 +302,15 @@ def evaluation_pipeline(input_json_path, incorrect_output_json_path):
 
 
 # -----------------Example usage (Uncomment according to need)-----------------
-folder_path = r'D:\NSFQA\Question Generation\TestTables_5'
-db_path = r'D:\NSFQA\Question Generation\SQL\new_test_database.db'
+folder_path = r'D:\LLMTables\LLMTablesQA\Question Generation\TestTables_5'
+db_path = r'D:\LLMTables\LLMTablesQA\Question Generation\SQL\new_test_database.db'
 client = OpenAI()
 
 # ----------For updating the DB and converting CSVs to tables in DB-----------
-# conn = csv_folder_to_database_custom_schema(folder_path, db_path)
+conn = csv_folder_to_database_custom_schema(folder_path, db_path)
 
 # ---------Print Tables in DB-------------
-# check_tables_in_db(db_path)
+check_tables_in_db(db_path)
 
 # -----------Ad-hoc Query Generation on single table---------
 # table_name = "sportset_2"
@@ -316,15 +320,15 @@ client = OpenAI()
 # print(json.dumps(queries_json, indent=4))
 
 # -----------Generate SQL Queries Throughout the DB---------------
-# output_file = r"D:\NSFQA\Question Generation\SQL\simple_queries_output.json"  # Path to save the JSON
-# all_tables_result = process_all_tables_and_save_simple(db_path, output_file)
-# print("Generated Simplified JSON Output for All Tables:")
+output_file = r"D:\LLMTables\LLMTablesQA\Question Generation\SQL\scaled_simple_queries_output.json"  # Path to save the JSON
+all_tables_result = process_all_tables_and_save_simple(db_path, output_file)
+print("Generated Simplified JSON Output for All Tables")
 # print(json.dumps(all_tables_result, indent=4))
 
 # ---------Update JSON with executed SQL Result-------------
-# input_json_file = r"D:\NSFQA\Question Generation\SQL\simple_queries_output.json"
-# output_json_file = r"D:\NSFQA\Question Generation\SQL\queries_with_results.json"  # Output JSON
-# updated_result = execute_queries_and_update_json(db_path, input_json_file, output_json_file)
+input_json_file = r"D:\LLMTables\LLMTablesQA\Question Generation\SQL\scaled_simple_queries_output.json"
+output_json_file = r"D:\LLMTables\LLMTablesQA\Question Generation\SQL\scaled_queries_with_results.json"  # Output JSON
+updated_result = execute_queries_and_update_json(db_path, input_json_file, output_json_file)
 # print("Updated JSON with Results:")
 # print(json.dumps(updated_result, indent=4))
 
