@@ -9,7 +9,7 @@ Read the table schema and 5 rows given from the table carefully and understand i
 
          SQL TEMPLATE:
 
-         SELECT [column] FROM {table_name} WHERE [condition1] AND [condition2]
+         {template}
 
          Instruction:
             1. Please use the information from the table and data provided to fill in the placeholders in the template. Each SQL query should only return a single result using either:
@@ -83,7 +83,8 @@ Read the table schema and 5 rows given from the table carefully and understand i
 """
 
 query_to_nl_question_prompt = """
-You are an expert data scientist skilled in SQL and natural language processing. Your task is to convert SQL queries into natural language questions. 
+You are an expert data scientist skilled in SQL and natural language processing. 
+Your task is to convert SQL queries into natural language questions. 
 
         Here is the SQL Query: 
         {sql_query}
