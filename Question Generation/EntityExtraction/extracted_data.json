@@ -1,0 +1,265 @@
+[
+    {
+        "825827": {
+            "project_objective": "Develop new regression-based methods for quality improvement in data-rich complex systems",
+            "data_uncertainty_focus": "Various types of data uncertainties",
+            "limitations_addressed": "Existing methods have limited capabilities in handling data uncertainties",
+            "research_tasks": [
+                "Process modeling, monitoring, and fault detection based on data with uncertainties",
+                "Separation of process fault and sensor fault",
+                "Optimal sensor allocation for monitoring and diagnosis",
+                "Identification of maximum allowable level of data uncertainty"
+            ],
+            "application_fields": [
+                "Manufacturing process",
+                "Alzheimer's disease study"
+            ],
+            "expected_outcomes": [
+                "Bridge gap between data uncertainty studies and quality engineering",
+                "Advance state-of-the-art in quality improvement methodologies",
+                "Guide design, selection, and allocation of sensors"
+            ],
+            "education_plan_integration": "New curriculum development, student internship opportunities, women and minority student recruitment, K-12 programs",
+            "fields_covered": [
+                "Computer Science",
+                "Statistics",
+                "Quality Engineering",
+                "Data Science",
+                "Biology"
+            ]
+        }
+    },
+    {
+        "row_id": 810875,
+        "project_title": "Development of Efficient Spectral Element Algorithms",
+        "focus_areas": [
+            "unsteady_compressible_fluid_flow",
+            "aerodynamic_noise_control",
+            "optimal_control_algorithms"
+        ],
+        "methodologies": [
+            "spectral_element_algorithms",
+            "discontinuous_galerkin_approximations",
+            "optimized_imex_methods",
+            "stochastic_collocation_approximations"
+        ],
+        "control_types": [
+            "deterministic_controls",
+            "stochastic_controls"
+        ],
+        "applications": [
+            "windmill_farms",
+            "jet_engines",
+            "engineering_design",
+            "supply_allocation",
+            "production_planning",
+            "transportation",
+            "inventory_networks",
+            "finance",
+            "energy_systems",
+            "environmental_protection",
+            "pattern_recognition",
+            "military_logistics"
+        ],
+        "challenges_addressed": [
+            "uncertainty_in_real_flows",
+            "probabilistic_parameters",
+            "nondeterministic_initial_conditions",
+            "uncertain_input_situations"
+        ],
+        "impact_scope": "broad_impacts_in_mathematics_and_engineering",
+        "computational_needs": "large_computationally_intensive_simulations",
+        "importance_of_control": "acoustic_noise_generation_control"
+    },
+    {
+        "808004": {
+            "project_id": "AST-0808004/0807521/0808139",
+            "lead_researchers": "Fernandez, Meech, Lowry",
+            "project_name": "SEPPCoN",
+            "project_description": "Survey of the Ensemble Physical Properties of Cometary Nuclei",
+            "project_type": "collaborative awards",
+            "focus": "understanding comet population in the Solar System",
+            "time_span": "4.6 billion years",
+            "objectives": "investigate sizes, albedos, colors, shapes, rotations of comets",
+            "importance": "probe thermo-physical conditions of proto-planetary disk",
+            "nuclei_aspects": "bulk strength, mass loss, fragmentation, albedos, colors, axial ratios",
+            "sample_size": "100 JFC nuclei",
+            "sample_percentage": "30%",
+            "statistical_rigor": "large enough for statistical rigor",
+            "data_sources": "Spitzer Space Telescope, ground-based facilities",
+            "locations": "Mauna Kea, La Silla, La Palma, Palomar",
+            "undergraduate_involvement": "acquisition, reduction, presentation of datasets",
+            "educational_context": "useful for upper-level undergraduate courses on astronomical techniques",
+            "international_collaboration": "France, Spain, United Kingdom, four U.S. states",
+            "fields_covered": "astronomy, physics, computer science"
+        }
+    },
+    {
+        "852846": {
+            "grant_type": "international planning grant",
+            "principal_investigator": "Dr. Tia-Lynn Ashman",
+            "institution": "University of Pittsburgh",
+            "collaborators": [
+                "Dr. Conchita Alonso",
+                "Dr. Carlos Herrera"
+            ],
+            "collaborating_institution": "Estaci\u00f3n Biol\u00f3gica de Do\u00f1ana (CSIC)",
+            "location": "Seville, Spain",
+            "research_objective": "determine response of pollination and pollen limitation of plant reproduction to increasing diversity",
+            "focus_area": "plant community diversities",
+            "endemics_study": "relationship differs for endemics",
+            "study_location": "Baetic Mountain Ranges, southern Spain",
+            "grant_goal": "conduct feasibility studies and gather preliminary data",
+            "experimental_focus": "mechanisms of global pollen limitation-biodiversity gradients",
+            "student_development": "two students as members of global scientific community",
+            "outcome": "better understanding of plant-pollinator interactions and biodiversity",
+            "conservation_importance": "effective conservation of plants and pollinators",
+            "modern_threats": [
+                "changing climate",
+                "pollinator declines",
+                "habitat loss"
+            ],
+            "fields_covered": [
+                "biology",
+                "environmental science",
+                "ecology"
+            ]
+        }
+    },
+    {
+        "850564": {
+            "project_title": "Research Experiences for Undergraduates (REU) Site",
+            "lead_investigator": "Dr. Eric Sandquist",
+            "institution": "San Diego State University",
+            "collaborating_institutions": "California State University campuses, University of Kansas",
+            "scientific_focus": "observational astronomy",
+            "specific_areas_of_research": [
+                "supernovae and distance scale",
+                "stellar corpses",
+                "eclipsing binary stars",
+                "open and globular star clusters",
+                "extrasolar planets",
+                "dwarf galaxies"
+            ],
+            "observing_facility": "Mount Laguna telescopes",
+            "program_objectives": [
+                "provide research experiences for students",
+                "facilitate student training and research",
+                "encourage research at non-Ph.D. granting campuses"
+            ],
+            "target_population": "students from underrepresented ethnic groups",
+            "underrepresented_ethnic_groups_percentage": {
+                "SDSU": "40%",
+                "CSU_system": "55%"
+            },
+            "recruitment_strategy": "community colleges",
+            "funding_agency": "NSF Division of Astronomical Sciences",
+            "fields_covered": [
+                "astronomy",
+                "physics",
+                "education"
+            ]
+        }
+    },
+    {
+        "807140": {
+            "intellectual_merit": "New scholarship program, Scientists for Tomorrow",
+            "project_objectives": [
+                "increasing access to STEM education",
+                "improving first-year performance among at-risk groups",
+                "involving students in the scientific community",
+                "transitioning students to other existing sources of support",
+                "affecting graduation rates, graduate school matriculation and scientific career choices"
+            ],
+            "scholarship_amount": "$2,500 to $5,000 annually",
+            "number_of_students_supported": 43,
+            "fields_covered": [
+                "Astronomy",
+                "Computer Sciences",
+                "Math",
+                "Physics"
+            ],
+            "selection_process": "Filtered by Office of Student Financial Services based on need, selected by departmental committee using academic merit criteria",
+            "student_participation": [
+                "community building activities",
+                "academic cohort",
+                "assigned faculty mentor",
+                "graduate school seminars",
+                "undergraduate research seminars",
+                "career seminars"
+            ],
+            "broader_impact": "Addresses national areas of need, supports low-income and underrepresented groups in sciences",
+            "university_contribution": "Major contribution to minority education, top ten in bachelor's degrees, first in doctoral degrees awarded to Hispanics",
+            "existing_support_programs": "Encouragement to traditionally underrepresented populations, participation in research",
+            "expected_impact": "Concrete impact on recruitment and retention in sciences"
+        }
+    },
+    {
+        "813186": {
+            "grant_id": "2008 EAPSI Fellowship",
+            "supported_individual": "U.S. graduate student",
+            "research_locations": "Australia, China, Japan, Korea, New Zealand, Singapore, Taiwan",
+            "research_experience": "first-hand mentored research experience",
+            "science_policy_introduction": "introduction to science and science policy infrastructure",
+            "cultural_orientation": "orientation to the culture and language of the location",
+            "program_goals": "expose students to science and engineering in research laboratory",
+            "professional_relationships": "initiate early-career professional relationships",
+            "future_collaborations": "foster research collaborations with foreign counterparts",
+            "fields_covered": "science, engineering"
+        }
+    },
+    {
+        "855326": {
+            "research_objective": "improve understanding and capabilities in concept generation through design by analogy methods",
+            "collaboration_fields": [
+                "cognitive psychology",
+                "engineering design",
+                "computer science"
+            ],
+            "project_name": "Verrocchio Project",
+            "initial_application": "design of prosthetic and orthotic devices for persons with disabilities",
+            "initial_search_space": "USPTO utility patent repository",
+            "deliverables": [
+                "means to generalize design problems through functional descriptions",
+                "ability to search for analogical solutions with alternative functional representations",
+                "ways to search for geometric similarities across functional analogies",
+                "ability to produce a tractable set of analogies for designers"
+            ],
+            "transformative_impacts": [
+                "method for systematically identifying analogies",
+                "advancement of analogies in engineering design methods",
+                "computer implementation of the method contributing to cyber infrastructure",
+                "cross-fertilization of theory and research techniques",
+                "development of instructional materials for training students"
+            ],
+            "instructional_materials_availability": "freely available to instructors at other institutions",
+            "fields_covered": [
+                "engineering",
+                "design",
+                "psychology",
+                "computer science"
+            ]
+        }
+    },
+    {
+        "847799": {
+            "project_focus": "sediment transport in steep channels",
+            "location": "mountainous drainage basins",
+            "gradient_range": "3-20%",
+            "impact_areas": "aquatic habitat, water quality, channel stability",
+            "sediment_transport_equations": "empirical fits, reach-scale",
+            "hypothesis_aspects": "turbulence, grain properties, spatial variability, temporal variations",
+            "research_methods": "flume experiments",
+            "field_locations": "local and international",
+            "intellectual_merit": "understanding turbulence and sediment transport processes",
+            "education_objectives": "graduate classes, international research, K-12 education, Women in Science Camp",
+            "fields_covered": [
+                "environmental science",
+                "engineering",
+                "education"
+            ],
+            "sediment_flux_prediction": "accurate and mechanistic estimates",
+            "project_outcomes": "transform predictions of landscape evolution, river restoration design"
+        }
+    }
+]
