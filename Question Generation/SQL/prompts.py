@@ -31,21 +31,21 @@ Read the table schema and 5 rows given from the table carefully and understand i
             Query: <Single Liner SQL Query>
             Table: {table_name}
 
-            Generate 5 such SQL queries.
+            Generate 2 such SQL queries.
 """
 
 generate_queries_for_like_prompt = """
 Read the table schema and 5 rows given from the table carefully and understand it correctly. Pay special attention to identifying key patterns in columns like `summary` and `stadium` for LIKE queries.
 
             ### Table Schema:
-            {json.dumps(schema, indent=4)}
+            {schema}
 
             ### ROW DATA:
-            {json.dumps(row_samples, indent=4)}
+            {row_samples}
 
             ### SQL TEMPLATE:
 
-            SELECT [column1], [aggregation]([column2]) FROM [table] WHERE [column1] LIKE '%pattern%' GROUP BY [column1]
+            {template}
 
             ### Instruction:
             Your task is to fill in the placeholders in the query templates and create meaningful & logical SQL queries. Focus on making LIKE queries insightful by identifying specific patterns from the schema and sample data. 
@@ -69,17 +69,17 @@ Read the table schema and 5 rows given from the table carefully and understand i
             - Ensure a meaningful ORDER BY clause for any LIMIT statements.
 
             #### Example Queries:
-            - "SELECT state, SUM(attendance) FROM sportset_2 WHERE stadium LIKE '%Center%' GROUP BY state HAVING SUM(attendance) > 30000"
-            - "SELECT COUNT(*) FROM [table] WHERE summary LIKE '%Boston Celtics%' AND month = 'February'"
-            - "SELECT stadium, MAX(capacity) FROM [table] WHERE stadium LIKE '%Arena%'"
-            - "SELECT * FROM [table] WHERE summary LIKE '%Los Angeles Lakers%'"
+            {example_1}
+            {example_2}
+            {example_3}
+            {example_4}
 
             ### Response Format:
             Query: <Single Liner SQL Query>
             Table: {table_name}
 
             ### Task:
-            Generate 5 such SQL Queries.
+            Generate 2 such SQL Queries.
 """
 
 query_to_nl_question_prompt = """

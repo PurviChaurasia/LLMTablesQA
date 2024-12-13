@@ -129,5 +129,9 @@ like_eg = ["SELECT state, SUM(attendance) FROM sportset_2 WHERE stadium LIKE '%C
             "SELECT month, AVG(attendance) FROM sportset_coldtemp_30_13 WHERE summary LIKE '%Charlotte Hornets%' GROUP BY month HAVING AVG(attendance) > 15000",
             "SELECT city, COUNT(*) FROM sportset_midwest_30_8 WHERE summary LIKE '%Indiana Pacers%' AND month = 'February' GROUP BY city",
             "SELECT DISTINCT dayname FROM sportset_midwest_30_8 WHERE summary LIKE '%Rockets%' ORDER BY dayname ASC",
-            "SELECT COUNT(*) FROM sportset_northeast_30_1 WHERE summary LIKE '%Los Angeles Lakers%' AND year = 2018"
+            "SELECT COUNT(*) FROM sportset_northeast_30_1 WHERE summary LIKE '%Los Angeles Lakers%' AND year = 2018",
+            "SELECT dayname, COUNT(DISTINCT game_id) FROM sportset_2 WHERE summary LIKE '%Anthony Davis%' AND stadium LIKE '%Arena%' GROUP BY dayname ORDER BY COUNT(DISTINCT game_id) DESC",
+            "SELECT stadium, city FROM [table] WHERE summary LIKE '%John Wall%' AND summary LIKE '%injury%",
+            "SELECT COUNT(*) WHERE season = 2016 AND summary LIKE '%career - high%",
+            "SELECT COUNT(DISTINCT game_id) FROM sportset_2 WHERE summary LIKE '%LeBron James%' AND attendance > capacity",
             ]
