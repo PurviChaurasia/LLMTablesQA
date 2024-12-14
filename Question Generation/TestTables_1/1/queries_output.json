@@ -1,0 +1,26 @@
+[
+    {
+        "table_name": "sportset_2",
+        "query": "SELECT city FROM sportset_2 WHERE stadium LIKE '%Center%' AND attendance < capacity"
+    },
+    {
+        "table_name": "sportset_2",
+        "query": "SELECT COUNT(DISTINCT city) FROM sportset_2 WHERE state = 'Louisiana' AND year >= 2016 HAVING COUNT(*) > 1"
+    },
+    {
+        "table_name": "sportset_2",
+        "query": "SELECT city, COUNT(*) FROM sportset_2 WHERE attendance > capacity AND season = 2018 GROUP BY city HAVING COUNT(*) > 1"
+    },
+    {
+        "table_name": "sportset_2",
+        "query": "SELECT DISTINCT stadium FROM sportset_2 WHERE month LIKE '%March%' AND year = 2019 ORDER BY stadium LIMIT 1"
+    },
+    {
+        "table_name": "sportset_2",
+        "query": "SELECT COUNT(*) FROM sportset_2 WHERE city = 'Orlando' AND attendance > capacity * 0.8 GROUP BY season HAVING COUNT(*) > 0"
+    },
+    {
+        "table_name": "sportset_2",
+        "query": "SELECT DISTINCT month FROM sportset_2 WHERE state = 'Florida' AND (year = 2016 OR year = 2017) ORDER BY month"
+    }
+]

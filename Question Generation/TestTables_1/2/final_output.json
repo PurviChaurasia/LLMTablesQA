@@ -1,0 +1,38 @@
+[
+    {
+        "table_name": "sportset_coldtemp_30_13",
+        "query": "SELECT DISTINCT city FROM sportset_coldtemp_30_13 WHERE attendance < capacity AND season = 2015",
+        "result": "[('Detroit',), ('Washington',), ('Brooklyn',)]",
+        "question": "Which cities had sporting events in the 2015 season where the attendance was less than the venue's capacity?"
+    },
+    {
+        "table_name": "sportset_coldtemp_30_13",
+        "query": "SELECT COUNT(stadium) FROM sportset_coldtemp_30_13 WHERE month LIKE 'March' GROUP BY stadium HAVING COUNT(stadium) > 1",
+        "result": "[(3,), (3,), (3,)]",
+        "question": "How many stadiums hosted events in March where the number of events exceeded one?"
+    },
+    {
+        "table_name": "sportset_coldtemp_30_13",
+        "query": "SELECT city, COUNT(*) FROM sportset_coldtemp_30_13 WHERE attendance > capacity AND season = 2015 GROUP BY city HAVING COUNT(*) > 1",
+        "result": "[('Chicago', 3), ('Toronto', 3)]",
+        "question": "In the 2015 season, which cities hosted more than one sports event where the number of attendees exceeded the venue's capacity?"
+    },
+    {
+        "table_name": "sportset_coldtemp_30_13",
+        "query": "SELECT DISTINCT stadium FROM sportset_coldtemp_30_13 WHERE month LIKE 'February' AND year = 2016 AND attendance < capacity ORDER BY attendance DESC LIMIT 1",
+        "result": "[]",
+        "question": "In February 2016, which stadium had the highest attendance for events where the number of attendees was less than its seating capacity?"
+    },
+    {
+        "table_name": "sportset_coldtemp_30_13",
+        "query": "SELECT DISTINCT city FROM sportset_coldtemp_30_13 WHERE capacity > attendance AND month LIKE 'February' ORDER BY city",
+        "result": "[('Boston',), ('Brooklyn',), ('Chicago',)]",
+        "question": "Which cities had stadiums with more seats than the number of attendees during sports events held in February?"
+    },
+    {
+        "table_name": "sportset_coldtemp_30_13",
+        "query": "SELECT COUNT(*) FROM sportset_coldtemp_30_13 WHERE dayname = 'Monday' AND season = 2015 HAVING COUNT(*) > 1",
+        "result": "Error: a GROUP BY clause is required before HAVING",
+        "question": "During the 2015 season, how many Mondays had more than one recorded event in the dataset?"
+    }
+]

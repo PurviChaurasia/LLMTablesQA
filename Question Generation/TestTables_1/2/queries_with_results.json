@@ -1,0 +1,32 @@
+[
+    {
+        "table_name": "sportset_coldtemp_30_13",
+        "query": "SELECT DISTINCT city FROM sportset_coldtemp_30_13 WHERE attendance < capacity AND season = 2015",
+        "result": "[('Detroit',), ('Washington',), ('Brooklyn',)]"
+    },
+    {
+        "table_name": "sportset_coldtemp_30_13",
+        "query": "SELECT COUNT(stadium) FROM sportset_coldtemp_30_13 WHERE month LIKE 'March' GROUP BY stadium HAVING COUNT(stadium) > 1",
+        "result": "[(3,), (3,), (3,)]"
+    },
+    {
+        "table_name": "sportset_coldtemp_30_13",
+        "query": "SELECT city, COUNT(*) FROM sportset_coldtemp_30_13 WHERE attendance > capacity AND season = 2015 GROUP BY city HAVING COUNT(*) > 1",
+        "result": "[('Chicago', 3), ('Toronto', 3)]"
+    },
+    {
+        "table_name": "sportset_coldtemp_30_13",
+        "query": "SELECT DISTINCT stadium FROM sportset_coldtemp_30_13 WHERE month LIKE 'February' AND year = 2016 AND attendance < capacity ORDER BY attendance DESC LIMIT 1",
+        "result": "[]"
+    },
+    {
+        "table_name": "sportset_coldtemp_30_13",
+        "query": "SELECT DISTINCT city FROM sportset_coldtemp_30_13 WHERE capacity > attendance AND month LIKE 'February' ORDER BY city",
+        "result": "[('Boston',), ('Brooklyn',), ('Chicago',)]"
+    },
+    {
+        "table_name": "sportset_coldtemp_30_13",
+        "query": "SELECT COUNT(*) FROM sportset_coldtemp_30_13 WHERE dayname = 'Monday' AND season = 2015 HAVING COUNT(*) > 1",
+        "result": "Error: a GROUP BY clause is required before HAVING"
+    }
+]

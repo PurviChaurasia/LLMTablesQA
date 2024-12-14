@@ -1,0 +1,38 @@
+[
+    {
+        "table_name": "sportset_2",
+        "query": "SELECT city FROM sportset_2 WHERE stadium LIKE '%Center%' AND attendance < capacity",
+        "result": "[('Orlando',), ('New Orleans',), ('New Orleans',), ('Orlando',), ('Charlotte',), ('Charlotte',), ('Orlando',), ('New Orleans',), ('New Orleans',), ('Orlando',), ('Charlotte',), ('Charlotte',), ('Orlando',), ('New Orleans',), ('New Orleans',), ('Orlando',), ('Charlotte',), ('Charlotte',)]",
+        "question": "Which cities have stadiums that include the word \"Center\" in their name and have had attendance numbers lower than their seating capacity?"
+    },
+    {
+        "table_name": "sportset_2",
+        "query": "SELECT COUNT(DISTINCT city) FROM sportset_2 WHERE state = 'Louisiana' AND year >= 2016 HAVING COUNT(*) > 1",
+        "result": "Error: a GROUP BY clause is required before HAVING",
+        "question": "How many unique cities in Louisiana have hosted sports events since 2016, given that they held more than one event?"
+    },
+    {
+        "table_name": "sportset_2",
+        "query": "SELECT city, COUNT(*) FROM sportset_2 WHERE attendance > capacity AND season = 2018 GROUP BY city HAVING COUNT(*) > 1",
+        "result": "[('Dallas', 3)]",
+        "question": "In the 2018 season, which cities hosted more than one sporting event where the attendance exceeded the venue's seating capacity?"
+    },
+    {
+        "table_name": "sportset_2",
+        "query": "SELECT DISTINCT stadium FROM sportset_2 WHERE month LIKE '%March%' AND year = 2019 ORDER BY stadium LIMIT 1",
+        "result": "Smoothie King Center",
+        "question": "Which stadium was used for sporting events in March 2019?"
+    },
+    {
+        "table_name": "sportset_2",
+        "query": "SELECT COUNT(*) FROM sportset_2 WHERE city = 'Orlando' AND attendance > capacity * 0.8 GROUP BY season HAVING COUNT(*) > 0",
+        "result": "[(3,), (3,)]",
+        "question": "In the city of Orlando, during which seasons were there more events where attendance exceeded 80% of the venue's capacity, and how many such events occurred in each season?"
+    },
+    {
+        "table_name": "sportset_2",
+        "query": "SELECT DISTINCT month FROM sportset_2 WHERE state = 'Florida' AND (year = 2016 OR year = 2017) ORDER BY month",
+        "result": "February",
+        "question": "In Florida, which months in 2016 and 2017 saw sports events?"
+    }
+]

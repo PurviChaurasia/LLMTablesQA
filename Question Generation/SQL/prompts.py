@@ -17,21 +17,27 @@ Read the table schema and 5 rows given from the table carefully and understand i
             - An aggregate function (e.g., COUNT(), SUM(), MAX(), etc.)
 
             2. Follow the template given and try to fill in the placeholders in a way that can lead to logical and complex queries.
-            3. Add HAVING, LIKE and DISTINCT to the template to generate queries as you wish. Note that HAVING should be followed by a GROUP BY always.
-            4. Make use of AND,OR and NOT at will in the conditions.
-            5. If you're adding LIMIT make sure it follows a meaningful ORDER BY so that the answer is not dependent on internal ordering of the database.
-            6. Try to make the query set as diverse as possible while not deviating much from the template given to you.
-            7. Ensure that the queries generate deterministic answers, such as a single count, maximum, or specific column value (e.g., "How many games were held in Orlando?").
+            3. Add HAVING, LIKE and DISTINCT to the template to generate queries as you wish. 
+            4. Note that HAVING should be followed by a GROUP BY always.
+            5. Make use of AND,OR and NOT at will in the conditions.
+            6. If you're adding LIMIT make sure it follows a meaningful ORDER BY so that the answer is not dependent on internal ordering of the database.
+            7. Try to make the query set as diverse as possible while not deviating much from the template given to you.
+            8. Ensure that the queries generate deterministic answers, such as a single count, maximum, or specific column value (e.g., "How many games were held in Orlando?").
+
+            Strictly adhere to the rules stated above. 
 
             Example:
-            1. SELECT city FROM sportset_west_30_4 WHERE dayname = 'Monday' AND season = 2014 AND capacity > attendance
-            2. SELECT DISTINCT stadium FROM sportset_west_30_4 WHERE year = 2015 OR year = 2014
+            1. SELECT city FROM {table_name} WHERE dayname = 'Monday' AND season = 2014 AND capacity > attendance
+            2. SELECT DISTINCT {table_name} stadium FROM  WHERE year = 2015 OR year = 2014
+            3. SELECT month, SUM(attendance) FROM sportset_midwest_30_8 WHERE year = 2016 GROUP BY month
+            4. SELECT stadium, attendance FROM sportset_midwest_30_8 WHERE attendance > 16000 GROUP BY city
+            5. SELECT COUNT(*) FROM sportset_2 WHERE NOT (city != 'Orlando' OR attendance <= 16000);
             
             Please STRICTLY follow the Response format while answering :
             Query: <Single Liner SQL Query>
             Table: {table_name}
 
-            Generate 2 such SQL queries.
+            Generate 2 such SQL query.
 """
 
 generate_queries_for_like_prompt = """
@@ -79,7 +85,7 @@ Read the table schema and 5 rows given from the table carefully and understand i
             Table: {table_name}
 
             ### Task:
-            Generate 2 such SQL Queries.
+            Generate 2 such SQL Query.
 """
 
 query_to_nl_question_prompt = """
@@ -94,6 +100,7 @@ Your task is to convert SQL queries into natural language questions.
         - Avoid technical jargon unless absolutely necessary.
         - Ensure the question retains the same scope and meaning as the SQL query to avoid altering the query's answer.
         - Try to craft intuitive and complex questions from the query
+        - Make sure the query result and the generated question's answer would be the same. That is the question should be grounded in the query.
 
         Example:
         SQL: SELECT COUNT(game_id) FROM sportset_2 WHERE city = 'Orlando' AND year = 2015
